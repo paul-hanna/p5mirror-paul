@@ -1,0 +1,20 @@
+# paul-paul p5projects
+[17 sketches 2024-12-20T03:38:59.303Z](./downloads/gen/sketches_recent.md)
+
+- [CNN (cocomelon news network)-6tS6aOIQ8](./p5projects/CNN%20(cocomelon%20news%20network)-6tS6aOIQ8) [[p5js](https://editor.p5js.org/paul-paul/sketches/6tS6aOIQ8)]
+- [Fourth alloy copy-Lju6Z1Ri\_](./p5projects/Fourth%20alloy%20copy-Lju6Z1Ri_) [[p5js](https://editor.p5js.org/paul-paul/sketches/Lju6Z1Ri_)]
+- [Fourth alloy copy-noexTOKXs](./p5projects/Fourth%20alloy%20copy-noexTOKXs) [[p5js](https://editor.p5js.org/paul-paul/sketches/noexTOKXs)]
+- [Fourth alloy-yGiBWHhYz](./p5projects/Fourth%20alloy-yGiBWHhYz) [[p5js](https://editor.p5js.org/paul-paul/sketches/yGiBWHhYz)]
+- [Ionized pearl-Myghge6mT](./p5projects/Ionized%20pearl-Myghge6mT) [[p5js](https://editor.p5js.org/paul-paul/sketches/Myghge6mT)]
+- [Pong for Textile Interfaces copy-JcqpHbMr6](./p5projects/Pong%20for%20Textile%20Interfaces%20copy-JcqpHbMr6) [[p5js](https://editor.p5js.org/paul-paul/sketches/JcqpHbMr6)]
+- [W4 Re-write as a loop - I copy-e2Caei0PH](./p5projects/W4%20Re-write%20as%20a%20loop%20-%20I%20copy-e2Caei0PH) [[p5js](https://editor.p5js.org/paul-paul/sketches/e2Caei0PH)]
+- [W4 Re-write as a loop - III copy-huKxsWcSK](./p5projects/W4%20Re-write%20as%20a%20loop%20-%20III%20copy-huKxsWcSK) [[p5js](https://editor.p5js.org/paul-paul/sketches/huKxsWcSK)]
+- [Week 1 - Screen Drawing copy-zczXW\_szf](./p5projects/Week%201%20-%20Screen%20Drawing%20copy-zczXW_szf) [[p5js](https://editor.p5js.org/paul-paul/sketches/zczXW_szf)]
+- [bart-n230J0geG](./p5projects/bart-n230J0geG) [[p5js](https://editor.p5js.org/paul-paul/sketches/n230J0geG)]
+- [cat party-XxxzC6JkT](./p5projects/cat%20party-XxxzC6JkT) [[p5js](https://editor.p5js.org/paul-paul/sketches/XxxzC6JkT)]
+- [martini man-IMVYjtvfC](./p5projects/martini%20man-IMVYjtvfC) [[p5js](https://editor.p5js.org/paul-paul/sketches/IMVYjtvfC)]
+- [over-under-IxP1o\_JN6](./p5projects/over-under-IxP1o_JN6) [[p5js](https://editor.p5js.org/paul-paul/sketches/IxP1o_JN6)]
+- [pet cat-7BlH1YltR](./p5projects/pet%20cat-7BlH1YltR) [[p5js](https://editor.p5js.org/paul-paul/sketches/7BlH1YltR)]
+- [video project code-q3xLIeys3](./p5projects/video%20project%20code-q3xLIeys3) [[p5js](https://editor.p5js.org/paul-paul/sketches/q3xLIeys3)]
+- [webSerial multiple ascii values Arduino to P5 copy-5HPK0RNUB](./p5projects/webSerial%20multiple%20ascii%20values%20Arduino%20to%20P5%20copy-5HPK0RNUB) [[p5js](https://editor.p5js.org/paul-paul/sketches/5HPK0RNUB)]
+- [webSerial one binary value P5 to Arduino copy-gNdGccCmT](./p5projects/webSerial%20one%20binary%20value%20P5%20to%20Arduino%20copy-gNdGccCmT) [[p5js](https://editor.p5js.org/paul-paul/sketches/gNdGccCmT)]
