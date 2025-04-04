@@ -1,5 +1,5 @@
 # paul-paul p5projects
-[17 sketches 2024-12-20T03:38:59.303Z](./downloads/gen/sketches_recent.md)
+[18 sketches 2025-04-04T14:08:40.922Z](./downloads/gen/sketches_recent.md)
 
 - [CNN (cocomelon news network)-6tS6aOIQ8](./p5projects/CNN%20(cocomelon%20news%20network)-6tS6aOIQ8) [[p5js](https://editor.p5js.org/paul-paul/sketches/6tS6aOIQ8)]
 - [Fourth alloy copy-Lju6Z1Ri\_](./p5projects/Fourth%20alloy%20copy-Lju6Z1Ri_) [[p5js](https://editor.p5js.org/paul-paul/sketches/Lju6Z1Ri_)]
@@ -13,6 +13,7 @@
 - [bart-n230J0geG](./p5projects/bart-n230J0geG) [[p5js](https://editor.p5js.org/paul-paul/sketches/n230J0geG)]
 - [cat party-XxxzC6JkT](./p5projects/cat%20party-XxxzC6JkT) [[p5js](https://editor.p5js.org/paul-paul/sketches/XxxzC6JkT)]
 - [martini man-IMVYjtvfC](./p5projects/martini%20man-IMVYjtvfC) [[p5js](https://editor.p5js.org/paul-paul/sketches/IMVYjtvfC)]
+- [mr moustache-6KWvgOZ07](./p5projects/mr%20moustache-6KWvgOZ07) [[p5js](https://editor.p5js.org/paul-paul/sketches/6KWvgOZ07)]
 - [over-under-IxP1o\_JN6](./p5projects/over-under-IxP1o_JN6) [[p5js](https://editor.p5js.org/paul-paul/sketches/IxP1o_JN6)]
 - [pet cat-7BlH1YltR](./p5projects/pet%20cat-7BlH1YltR) [[p5js](https://editor.p5js.org/paul-paul/sketches/7BlH1YltR)]
 - [video project code-q3xLIeys3](./p5projects/video%20project%20code-q3xLIeys3) [[p5js](https://editor.p5js.org/paul-paul/sketches/q3xLIeys3)]
