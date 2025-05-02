@@ -490,19 +490,19 @@
         "fileType": "folder",
         "isSelectedFile": false,
         "_id": "67ef769474221a8e640e5cdf",
-        "createdAt": "2025-04-04T14:08:40.922Z",
-        "updatedAt": "2025-04-04T14:08:40.922Z",
+        "createdAt": "2025-04-11T15:11:31.423Z",
+        "updatedAt": "2025-04-11T15:11:31.423Z",
         "id": "67ef769474221a8e640e5cdf"
       },
       {
         "name": "sketch.js",
-        "content": "//press f to full screen\n\nlet leftStache = [];\nlet rightStache = [];\nlet leftAngle = 180;\nlet rightAngle = 0;\nlet flash = false;\nlet flashStartTime;\nlet currentBgColor;\nlet audio;\n\n\nfunction preload() {\n  audio = loadSound('passthepeas.wav');\n}\n\nfunction setup() {\n  createCanvas(windowWidth, windowHeight);\n  angleMode(DEGREES);\n  noScroll();\n  initStache();\n  flashStartTime = millis(); \n}\n\nfunction noScroll() {\n  document.body.style.overflow = 'hidden';\n  document.documentElement.style.overflow = 'hidden';\n}\n\nfunction windowResized() {\n  resizeCanvas(windowWidth, windowHeight);\n  initStache();\n}\n\nfunction initStache() {\n  leftStache = [];\n  rightStache = [];\n  let baseY = height / 2 + 20;\n  leftStache.push(createVector(width / 2 - 5, baseY));\n  rightStache.push(createVector(width / 2 + 5, baseY));\n  leftAngle = 180;\n  rightAngle = 0;\n}\n\nfunction draw() {\n  if (!flash && millis() - flashStartTime > 10000) {\n    flash = true;\n    currentBgColor = color(random(255), random(255), random(255));\n  }\n\n  if (flash) {\n    if (frameCount % 33 === 0) {\n      currentBgColor = color(random(255), random(255), random(255));\n    }\n    background(currentBgColor);\n  } else {\n    background(255);\n  }\n  if (millis() - flashStartTime > 10000 && !audio.isPlaying()) {\n    audio.play();\n  }\n  drawFace();\n  drawTopHat();\n  growHandlebar(leftStache, -1);\n  growHandlebar(rightStache, 1);\n}\n\n\nfunction keyPressed() {\n  if (keyCode === 70) {\n    let full = fullscreen();\n    fullscreen(!full); \n  }\n}\n\n\nfunction drawFace() {\n  \n  let cx = width / 2;\n  let cy = height / 2;\n  fill(255, 220, 185);\n  noStroke();\n  ellipse(cx, cy, 193, 180);\n  \n  fill(0);\n  ellipse(cx - 25, cy - 20, 10, 10);\n  ellipse(cx + 25, cy - 20, 10, 10);\n  \n  push();\n  noFill();\n  stroke(200,180,0);\n  strokeWeight(8);\n  ellipse(cx + 25, cy - 20, 40, 40);\n  pop();\n  \n  fill(0);\n  stroke(0);\n  line(cx, cy - 10, cx, cy + 10);\n  \n  noFill();\n  arc(cx, cy + 35, 30, 15, 0, 180);\n}\n\nfunction drawTopHat() {\n  let cx = width / 2;\n  let cy = height / 2;\n\n  fill(0);\n  rectMode(CENTER);\n  rect(cx, cy - 100, 100, 80,20);\n  rect(cx, cy - 60, 160, 15,20);\n}\n\nfunction growHandlebar(path, direction) {\n \n  stroke(0);\n  strokeWeight(14);\n  noFill();\n\n  beginShape();\n  for (let p of path) {\n    vertex(p.x, p.y);\n  }\n  endShape();\n\n  if (frameCount % 2 === 0) {\n    let last = path[path.length - 1];\n\n    if (direction < 0) {\n      leftAngle += random(-18, 18); \n      let step = p5.Vector.fromAngle(radians(leftAngle));\n      step.setMag(2);\n      \n      path.push(p5.Vector.add(last, step));\n      \n    } else {\n      \n      rightAngle += random(-18, 18);\n      let step = p5.Vector.fromAngle(radians(rightAngle));\n      step.setMag(2);\n      \n      path.push(p5.Vector.add(last, step));\n    }\n  }\n}\n\n",
+        "content": "// press f to full screen\n\n// https://paul.tube/ims03/?hatColor=red&growthSpeed=6\n\n//https://paul.tube/-ims-2025-paul/ims03\n\nlet leftStache = [];\nlet rightStache = [];\nlet leftAngle = 180;\nlet rightAngle = 0;\nlet flash = false;\nlet flashStartTime;\nlet currentBgColor;\nlet audio;\nlet hatColor;\nlet growthSpeed = 2;\nlet mic;\n\nfunction preload() {\n  // audio = loadSound('passthepeas.wav');\n}\n\nfunction setup() {\n  createCanvas(windowWidth, windowHeight);\n  angleMode(DEGREES);\n  noScroll();\n\n  // url parameters\n  //hatColor=color&growthSpeed=number\n\n  let params = getURLParams();\n  hatColor = params.hatColor ? color(params.hatColor) : color(0);\n  if (params.growthSpeed) {\n    growthSpeed = parseFloat(params.growthSpeed);\n  }\n\n  mic = new p5.AudioIn();\n  mic.start();\n\n  initStache();\n  flashStartTime = millis();\n}\n\nfunction noScroll() {\n  document.body.style.overflow = 'hidden';\n  document.documentElement.style.overflow = 'hidden';\n}\n\nfunction windowResized() {\n  resizeCanvas(windowWidth, windowHeight);\n  initStache();\n}\n\nfunction initStache() {\n  leftStache = [];\n  rightStache = [];\n  let isPortrait = height > width;\n  let baseY = isPortrait ? height * 0.6 : height / 2 + 20;\n\n  leftStache.push({ pos: createVector(width / 2 - 5, baseY), weight: 4 });\n  rightStache.push({ pos: createVector(width / 2 + 5, baseY), weight: 4 });\n\n  leftAngle = 180;\n  rightAngle = 0;\n}\n\nfunction draw() {\n  if (!flash && millis() - flashStartTime > 10000) {\n    flash = true;\n    currentBgColor = color(random(255), random(255), random(255));\n  }\n\n  if (flash) {\n    if (frameCount % 33 === 0) {\n      currentBgColor = color(random(255), random(255), random(255));\n    }\n    background(currentBgColor);\n  } else {\n    background(255);\n  }\n\n // if (millis() - flashStartTime > 10000 && !audio.isPlaying()) {\n //   audio.play();\n // }\n\n  drawFace();\n  drawTopHat();\n  growHandlebar(leftStache, -1);\n  growHandlebar(rightStache, 1);\n}\n\nfunction keyPressed() {\n  if (keyCode === 70) {\n    let full = fullscreen();\n    fullscreen(!full);\n  }\n}\n\nfunction drawFace() {\n  let cx = width / 2;\n  let cy = height / 2;\n  fill(255, 220, 185);\n  noStroke();\n  ellipse(cx, cy, 193, 180);\n\n  fill(0);\n  ellipse(cx - 25, cy - 20, 10, 10);\n  ellipse(cx + 25, cy - 20, 10, 10);\n\n  push();\n  noFill();\n  stroke(200, 180, 0);\n  strokeWeight(8);\n  ellipse(cx + 25, cy - 20, 40, 40);\n  pop();\n\n  fill(0);\n  stroke(0);\n  line(cx, cy - 10, cx, cy + 10);\n\n  noFill();\n  arc(cx, cy + 35, 30, 15, 0, 180);\n}\n\nfunction drawTopHat() {\n  let cx = width / 2;\n  let cy = height / 2;\n\n  fill(hatColor);\n  rectMode(CENTER);\n  rect(cx, cy - 100, 100, 80, 20);\n  rect(cx, cy - 60, 160, 15, 20);\n}\n\nfunction growHandlebar(path, direction) {\n  noFill();\n\n  // draw each segment with its own thickness\n  for (let i = 1; i < path.length; i++) {\n    let p1 = path[i - 1];\n    let p2 = path[i];\n    stroke(0);\n    strokeWeight(p1.weight);\n    line(p1.pos.x, p1.pos.y, p2.pos.x, p2.pos.y);\n  }\n\n  if (frameCount % 2 === 0) {\n    let last = path[path.length - 1];\n    let angle = (direction < 0) ? (leftAngle += random(-18, 18)) : (rightAngle += random(-18, 18));\n    let step = p5.Vector.fromAngle(radians(angle));\n    step.setMag(growthSpeed);\n    let newPos = p5.Vector.add(last.pos, step);\n\n    // mic volume to stroke weight. \n    // used gemini for insight on how\n    // to connect mic input to stroke width w its parameters\n    let vol = mic.getLevel();\n    let sw = map(vol, 0, 0.01, 4, 20);\n    sw = constrain(sw, 1, 20);\n\n    path.push({ pos: newPos, weight: sw });\n  }\n}\n",
         "children": [],
         "fileType": "file",
         "isSelectedFile": true,
         "_id": "67ef769474221a8e640e5cdc",
-        "createdAt": "2025-04-04T14:08:40.922Z",
-        "updatedAt": "2025-04-04T14:08:40.922Z",
+        "createdAt": "2025-04-11T15:11:31.423Z",
+        "updatedAt": "2025-04-11T15:11:31.423Z",
         "id": "67ef769474221a8e640e5cdc"
       },
       {
@@ -512,8 +512,8 @@
         "fileType": "file",
         "isSelectedFile": false,
         "_id": "67ef769474221a8e640e5cdd",
-        "createdAt": "2025-04-04T14:08:40.922Z",
-        "updatedAt": "2025-04-04T14:08:40.922Z",
+        "createdAt": "2025-04-11T15:11:31.423Z",
+        "updatedAt": "2025-04-11T15:11:31.423Z",
         "id": "67ef769474221a8e640e5cdd"
       },
       {
@@ -523,8 +523,8 @@
         "fileType": "file",
         "isSelectedFile": false,
         "_id": "67ef769474221a8e640e5cde",
-        "createdAt": "2025-04-04T14:08:40.922Z",
-        "updatedAt": "2025-04-04T14:08:40.922Z",
+        "createdAt": "2025-04-11T15:11:31.423Z",
+        "updatedAt": "2025-04-11T15:11:31.423Z",
         "id": "67ef769474221a8e640e5cde"
       },
       {
@@ -535,12 +535,12 @@
         "fileType": "file",
         "isSelectedFile": false,
         "_id": "67ef7ac587893b27a50592a7",
-        "createdAt": "2025-04-04T14:08:40.922Z",
-        "updatedAt": "2025-04-04T14:08:40.922Z",
+        "createdAt": "2025-04-11T15:11:31.423Z",
+        "updatedAt": "2025-04-11T15:11:31.423Z",
         "id": "67ef7ac587893b27a50592a7"
       }
     ],
-    "updatedAt": "2025-04-04T14:08:40.922Z",
+    "updatedAt": "2025-04-11T15:11:31.423Z",
     "createdAt": "2025-04-04T06:05:41.747Z",
     "id": "6KWvgOZ07"
   },
